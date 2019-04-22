@@ -18,7 +18,7 @@ def deposit(input, amount):
         savings = int(savings)
         savings += amount
     elif input == "checking":
-        checking = open("checking.txt",'r').read()
+        checking = open("checking.tandhxt",'r').read()
         checking = int(checking)
         checking += amount
 
@@ -27,6 +27,17 @@ def transfer (input, amount):
         savings = open("savings.txt", 'r').read()
         savings = int(savings)
         savings -= amount
+        file = open("savings.txt", "w").write(str(savings))
+
+
+
+
+
+
+
+
+
+
         checking = open("checking.txt", 'r').read()
         checking = int(checking)
         checking += amount
@@ -44,10 +55,15 @@ account = input()
 print("ok, what do you want to do? choose transfer, deposit, withdraw")
 action = input()
 print("how much money do you want to move? give an integer")
-amount = input()
+amount = (int(input())
+
+
 if action == "transfer" and account == "savings":
-    transfer("savings", 40)
-    print(f"savings balance is {savings}")
+    transfer("savings", amount)
+elif action == "transfer" and account == "checking":
+    transfer("checking", amount)
+
+
 
 
 
