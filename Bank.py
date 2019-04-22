@@ -46,8 +46,8 @@ action = input()
 print("how much money do you want to move? give an integer")
 amount = input()
 if action == "transfer" and account == "savings":
-
     transfer("savings", 40)
+    print(f"savings balance is {savings}")
 
 
 
