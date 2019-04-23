@@ -1,6 +1,4 @@
 
-
-
 def withdraw(input, amount):
     if input == "savings":
         savings = open("savings.txt", 'r').read()
@@ -47,6 +45,12 @@ def transfer (input, amount):
         savings += amount
         file = open("savings.txt", "w").write(str(savings))
 
+def printBalance(account):
+    if account == "savings":
+        balance = open("savings.txt", 'r').read()
+    if account == "checking":
+        balance = open("checking.txt",'r').read()
+    return balance
 
 print("what account do you want to use")
 account = input()
@@ -55,10 +59,12 @@ action = input()
 print("how much money do you want to move? give an integer")
 amount = input()
 amount = (int(amount))
+print (printBalance(account))
 
 
 if action == "transfer" and account == "savings":
     transfer(account, amount)
+    print ("alright, your balance is %s" % str(amount))
 elif action == "transfer" and account == "checking":
     transfer(account, amount)
 
