@@ -1,7 +1,8 @@
-DOCUMENTATION
+DOCUMENTATION AND GUIDE FOR TEST ANSWERS
+=========================================
 
 HOW TO START
-
+============
 PythonBankApp:
 run "python3 Bank.py" to run command line programming
 
@@ -9,10 +10,21 @@ SinatraBankApp:
 run 'ruby server.rb'
 open the website at localhost:4567
 
+SUMMARY OF APPS
+===============
+1) First I wrote a banking app in ruby that uses sinatra to throw a view up, and used object oriented programming to build it.
 
-First I wrote a banking app in ruby that uses sinatra to throw a view up, and used object oriented programming to build it.
+2)Then I wrote a banking app in Python using ‘procedural’ programming style, as an alternative to using object oriented programming. I'll explain procedural first.
 
-Then I wrote a banking app in Python using ‘procedural’ programming style, as an alternative to using object oriented programming. I'll explain procedural first.
+3) I TESTED THE SINATRA APP using capybara and wrote tests in the file /features/teams_spec.rb. I used[this](https://gist.github.com/zhengjia/428105)capybara cheat sheet to show me some good ways to test different things- links, vs buttons, etc. Capybara simulates clicking through a browser so the appropriate way to create tests for this is to get the bot to 'click' or interact with certain pieces of it and write tests that 'expect' a certain outcome. For example I wrote tests that check to see if certain buttons exist, if links take you to places they should, and and if pages contain the content they should. Repetition is also important in these tests- you mention what to expect as well as what NOT to expect, and try to go into the negative cases for for the sake of being through.
+
+ESSAY QUESTIONS
+===============
+
+THE REST OF MY ESSAY QUESTIONS ARE IN 'ESSAY QUESTIONS.MD IN THIS PYTHONBANKAPP'
+
+IN-DEPTH EXPLAINATIONS OF APPS
+==============================
 
 Procedural programming means not assembling your functions wrapped in classes, you just write them separately each as their own thing and write the program ‘top-down’ in this way. It can feel easy to write programs in this way and simple but as your programs get longer using object oriented programming to organize functionality is suggested for the following reasons [(see procedural programming, paragraph two)](https://www.codementor.io/learn-programming/comparing-programming-paradigms-procedural-programming-vs-object-oriented-programming).
 
@@ -28,8 +40,8 @@ For example, if you have twenty Christmas gifts pre-wrapped and ready to be sent
 Object oriented programs tend to be longer and therefore slower to run than procedural programs, however OOP tends to  cost less to develop because you are able to reuse a lot of code.[See Advantages and Disadvantages of Object-Oriented Programming]( https://resources.saylor.org/wwwresources/archived/site/wp-content/uploads/2013/02/CS101-2.1.2-AdvantagesDisadvantagesOfOOP-FINAL.pdf)
 
 
-How it was to write this:
-
+TRICKY THINGS I ENCOUNTERED MAKING THE APPS
+===========================================
 
 After just making sure I was following procedural programming (because I’m mostly familiar with OOP) I realized it’s not that different than what I’d done for my Sinatra app. I first wrote the Sinatra app for the command line using a partly procedural style, so I just re-wrote this part in python when the time came.
 
@@ -44,6 +56,7 @@ I hit this error, “AttributeError, :’int’ object has no attribute ‘write
 
 Errors I encountered regarding this, include “ValueError: invalid literal for int() with base 10:”. This happened when the file I was trying to write to, “savings.txt” or “checking.txt” was empty as I tried to change whatever they contained (which was nothing) into an integer. This was solved by starting out my accounts containing a number, but I also could have allowed for that by excepting an error:
 try:
+
    int('')
 except ValueError:
    pass      # or whatever
@@ -52,9 +65,7 @@ or if you’re not sure that your list is actually a list of stringafied integer
 
 n = int(line) if line.is_integer() else int(float(line))
 
-
 And finally I had to [read about how to use string interpolation]( https://realpython.com/python-string-formatting/) to print the final balance of each account to the command line.
-
 
 I’ll speak more specifically to my Sinatra app last, because it was an easier endeavor for me. I’m more familiar with ruby and making MVC apps. This was an object-oriented app, that I basically wrote the dialogue for first, then made methods in classes OOP style depending on what the conversation asked for. So I wrote this for the command-line interface first. I pulled down an old Sinatra app template I’d used before and started making routes to make my views, and buttons you click to navigate.
 
